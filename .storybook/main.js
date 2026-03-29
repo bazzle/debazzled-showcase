@@ -3,8 +3,7 @@
 /** @type { import('@storybook/nextjs-vite').StorybookConfig } */
 const config = {
   "stories": [
-    "../stories/**/*.mdx",
-    "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+    "../app/ui/style-library/components/**/*.stories.@(js|jsx|mjs|ts|tsx)"
   ],
   "addons": [
     "@chromatic-com/storybook",
