@@ -1,0 +1,5 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.afterArchive {
+	margin-bottom: var(--block-spacing);
+}

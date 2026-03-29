@@ -1,0 +1,53 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.showcaseViewer {
+	border-top: 0.5px solid var(--color-accent-10);
+	border-bottom: 0.5px solid var(--color-accent-10);
+	width: 100vw;
+	height: auto;
+	position: relative;
+	left: 50%;
+	transform: translate(-50%);
+	padding-top: var(--block-spacing--text);
+	margin-bottom: var(--block-spacing--text);
+	display: flex;
+	justify-content: flex-start;
+	max-height: fit-content;
+	transform: translate(-50%);
+	width: 90vw;
+	height: max-content;
+	left: 50%;
+	@include vars.scroll;
+	opacity: 0;
+	transition: opacity 1s ease;
+	&__inner {
+		display: flex;
+		flex-flow: row;
+		gap: 2vw;
+		flex-wrap: nowrap;
+		width: max-content;
+		max-width: none;
+		margin-left: var(--gutter-padding);
+		margin-right: var(--gutter-padding);
+		height: max-content;
+		flex-shrink: 0;
+		figure {
+			width: auto !important;
+			svg {
+				max-height: 400px;
+			}
+		}
+	}
+}
+
+.scroll {
+	opacity: 1;
+}
+.resetScroll {
+	justify-content: center;
+	cursor: unset !important;
+	opacity: 1;
+	&:active {
+		cursor: unset !important;
+	}
+}

@@ -1,0 +1,5 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.afterArticle {
+	margin-bottom: var(--block-spacing);
+}

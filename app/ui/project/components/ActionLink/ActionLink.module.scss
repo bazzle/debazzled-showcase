@@ -1,0 +1,30 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.actionLink {
+	display: flex;
+	align-items: center;
+	gap: 0.4em;
+	@media print {
+		&::after {
+			content: attr(data-label);
+		}
+	}
+	a {
+		@include vars.standalone-link;
+		cursor: pointer;
+		@media print {
+			display: none;
+		}
+	}
+	svg {
+		width: 12px;
+		height: 12px;
+		fill: var(--color-accent);
+		position: relative;
+		@media print {
+			width: 8px;
+			height: 8px;
+			top: -1px;
+		}
+	}
+}

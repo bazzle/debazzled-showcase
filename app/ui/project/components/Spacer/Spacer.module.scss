@@ -1,0 +1,61 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.spacer {
+	display: block;
+	@include vars.ridged-line;
+	margin-top: var(--block-spacing);
+	margin-bottom: var(--block-spacing);
+	@include vars.break(tablet) {
+		margin-top: clamp(10rem, 15vw, 13rem);
+		margin-bottom: clamp(10rem, 15vw, 13rem);
+	}
+	&_mobile {
+		display: block;
+		@include vars.break(tablet) {
+			display: none;
+		}
+		@media print {
+			display: none;
+		}
+	}
+	&_nomobile {
+		display: none;
+		@include vars.break(tablet) {
+			display: block;
+		}
+	}
+	&_shallow {
+		margin-top: var(--block-spacing--shallow);
+		margin-bottom: var(--block-spacing--shallow);
+		@include vars.break(tablet) {
+			margin-top: clamp(5rem, 3.75vw, 8.5rem);
+			margin-bottom: clamp(5rem, 3.75vw, 8.5rem);
+		}
+	}
+	&_noline {
+		background-color: transparent;
+		border-bottom: 0;
+	}
+	&_nolinemobile {
+		@include vars.break-under(tablet) {
+			background-color: transparent;
+			border-bottom: 0;
+		}
+	}
+	&_nomargin_top {
+		margin-top: 0;
+	}
+	&_nomargin_bottom {
+		margin-bottom: 0;
+	}
+	&_shallow_top {
+		@include vars.break(tablet) {
+			margin-top: var(--block-spacing);
+		}
+	}
+
+	@media print {
+		margin-top: var(--block-spacing--shallow--static);
+		margin-bottom: var(--block-spacing--shallow--static);
+	}
+}

@@ -1,0 +1,85 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+@mixin floating-nav-text-style {
+	@include vars.text-tiny;
+}
+
+$padding: 1rem;
+
+.floatingNav {
+	position: fixed;
+	right: var(--gutter-padding);
+	bottom: 0;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	display: block;
+	z-index: 10;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	overflow: hidden;
+	width: auto;
+	padding-left: $padding;
+	padding-right: $padding;
+	border-bottom: 0;
+	background-color: var(--color-bg);
+	@include vars.light-mode-wrapper {
+		background-color: var(--color-bg-solid);
+	}
+	@include vars.break(tablet) {
+		right: 4rem;
+		gap: 1rem;
+		flex-direction: row;
+		max-width: calc(100vw - (var(--gutter-padding) * 2));
+	}
+	&__backTop {
+		margin-bottom: 0;
+		display: flex;
+		align-items: center;
+		min-width: unset;
+		min-height: unset;
+		svg {
+			height: 5rem;
+			width: calc(5rem - $padding - $padding);
+		}
+	}
+	&__nav {
+		display: none;
+		@include vars.break(desktop) {
+			display: block;
+			text-align: end;
+			text-wrap: balance;
+			padding-left: $padding;
+			display: flex;
+			align-items: flex-end;
+		}
+		a {
+			@include floating-nav-text-style;
+			padding: 0.3em 0.3em;
+			text-decoration: none;
+			color: var(--color-accent);
+			border-bottom: 2px solid transparent;
+			@include vars.break(tablet) {
+				display: inline-flex;
+				align-items: center;
+				margin-left: 0.2em;
+				margin-right: 0.2em;
+				height: calc(100% - 2px);
+				height: 5vh;
+			}
+			&:hover {
+				color: var(--color-fg);
+			}
+			&:focus-visible {
+				color: var(--color-fg);
+			}
+			&:global(.active) {
+				border-color: var(--color-accent);
+				text-decoration: none;
+			}
+			&.unmatched {
+				display: none !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.footer {
+	padding: var(--block-spacing) 0 calc(var(--block-spacing--shallow) * 2);
+	background-repeat: repeat;
+	position: relative;
+	border-top: 1px solid var(--color-accent);
+	&__line {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		z-index: 1;
+		position: relative;
+		p {
+			padding: 0.5em 1em 0.65em 1em;
+			display: inline;
+			border-radius: 0.4em;
+			@include vars.text-blocky;
+			text-align: center;
+			margin-bottom: 0;
+			color: var(--color-fg);
+		}
+	}
+	@media print {
+		background-image: none;
+	}
+}

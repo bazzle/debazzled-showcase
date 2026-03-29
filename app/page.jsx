@@ -1,0 +1,68 @@
+import Hero from '@/app/ui/project/modules/HeroHomepage'
+import SkillsAndAbilities from '@/app/ui/project/modules/SkillsAndAbilities'
+import WorkHistory from '@/app/ui/project/modules/WorkHistory'
+import Themes from '@/app/ui/project/modules/Themes'
+import TextStandout from '@/app/ui/project/modules/TextStandout'
+import CardGrid from '@/app/ui/project/modules/CardGrid'
+import StdContentTemplate from './ui/project/modules/StdContentTemplate'
+import Header from '@/app/ui/project/modules/Header'
+import { metadata } from './layout'
+import ContactLinks from '@/app/ui/project/components/ContactLinks'
+import CallToAction from '@/app/ui/project/components/CallToAction'
+
+// content import
+import {
+	WelcomeContent,
+	WhatNextContent,
+	TextStandout1,
+	TextStandout2,
+	TextStandout3,
+	HomepageCards,
+} from '@/app/content/BodyContent'
+
+function Home() {
+	const title = metadata.title
+	const description = metadata.description
+	return (
+		<>
+			<Header location="home" />
+			<main className="main">
+				<Hero />
+
+				<StdContentTemplate
+					title={WelcomeContent.title}
+					bodyContent={WelcomeContent.bodyContent()}
+					id="who-am-i"
+				/>
+
+				<CardGrid
+					id="showcase-thought-pieces"
+					title={HomepageCards.title}
+					cards={HomepageCards.cards}
+					line
+				>
+					<CallToAction
+						buttons={[
+							{ link: 'thoughts/tag/showcase', linkText: 'View all Showcase' },
+							{ link: 'thoughts/tag/thoughts', linkText: 'View all Thoughts' },
+						]}
+					/>
+					<CallToAction />
+				</CardGrid>
+
+				<TextStandout
+					id="things-i-think-about"
+					textPrefix={TextStandout2.prefix}
+					content={TextStandout2.content}
+					line
+				/>
+
+				<TextStandout id="get-in-touch" content={TextStandout3.content} line>
+					<ContactLinks />
+				</TextStandout>
+			</main>
+		</>
+	)
+}
+
+export default Home

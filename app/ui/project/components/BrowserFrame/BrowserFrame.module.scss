@@ -1,0 +1,49 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.browserFrame {
+	position: relative;
+	padding-top: 0;
+	padding-bottom: 0;
+	margin-top: 0;
+	margin-bottom: 0;
+	min-width: 0;
+	flex-shrink: 0;
+	margin-bottom: 0;
+	display: flex;
+	flex-flow: column;
+	height: max-content;
+	svg {
+		aspect-ratio: 406 / 800;
+		height: auto;
+		display: block;
+		width: 100%;
+	}
+}
+
+.browserDesktop {
+	svg {
+		aspect-ratio: 1202 / 800;
+	}
+	&.extended {
+		width: 90vw;
+		height: auto;
+		max-width: 1200px;
+		position: relative;
+		left: 50%;
+		transform: translate(-50%);
+	}
+}
+
+.browserMobile {
+	svg {
+		max-width: 200px;
+	}
+}
+
+.browserFrame__caption {
+	display: block;
+	text-align: center;
+	width: 100%;
+	padding-top: calc(var(--block-spacing--text) / 2);
+	font-size: var(--font-size-miniscule);
+}

@@ -1,0 +1,126 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.ItemGroup {
+	display: flex;
+	flex: 1;
+	min-width: 0;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	scrollbar-width: none;
+	-webkit-scrollbar-width: none;
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.Item {
+	width: 100%;
+	min-width: 0;
+}
+
+.Control {
+	display: block;
+}
+
+.Trigger {
+	color: var(--color-accent);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 0;
+	outline-offset: 1rem;
+	svg {
+		width: 100%;
+		height: 100%;
+	}
+	&:is(:disabled, [data-disabled]) {
+		opacity: 0.5;
+	}
+	&:focus-visible {
+		outline: 2px solid var(--color-accent);
+	}
+	&:nth-of-type(1) {
+		svg {
+			fill: var(--color-accent);
+		}
+	}
+	&:nth-of-type(2) {
+		svg {
+			fill: var(--color-accent-alt);
+		}
+	}
+}
+
+.IndicatorGroup {
+	display: flex;
+	justify-content: center;
+}
+
+.Indicator {
+	width: 2rem;
+	height: 2rem;
+	background: var(--color-bg);
+	border-radius: 9999px;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+	outline: 4px solid var(--color-accent);
+	outline-offset: -12px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.ControlsContainer {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.progressIndicator {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	&__item {
+		display: block;
+		background: transparent;
+		height: 16px;
+		aspect-ratio: 1/1;
+		clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+		.overlay {
+			content: '';
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			opacity: 1;
+		}
+		&.active {
+			z-index: 1;
+			position: relative;
+			background: var(--color-accent);
+			.overlay {
+				background: var(--color-accent-alt);
+				opacity: var(--opacity);
+			}
+		}
+	}
+	&::after {
+		content: '';
+		display: block;
+		width: 100%;
+		height: 1px;
+		top: 50%;
+		left: 0;
+		background: linear-gradient(
+			90deg,
+			var(--color-accent),
+			var(--color-accent-alt)
+		);
+		position: absolute;
+	}
+}

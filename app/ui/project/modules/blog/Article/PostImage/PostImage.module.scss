@@ -1,0 +1,32 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.postImage {
+	position: relative;
+	width: 100%;
+	display: block;
+	&__image {
+		height: auto;
+		position: relative;
+		display: block;
+		border-radius: 2px;
+	}
+	&__caption {
+		display: block;
+		text-align: center;
+		width: 100%;
+		padding-top: calc(var(--block-spacing--text) / 2);
+		font-size: var(--font-size-tiny);
+	}
+}
+.extended {
+	.postImage {
+		&__image {
+			width: 90vw;
+			height: auto;
+			max-width: 1200px;
+			position: relative;
+			left: 50%;
+			transform: translate(-50%);
+		}
+	}
+}

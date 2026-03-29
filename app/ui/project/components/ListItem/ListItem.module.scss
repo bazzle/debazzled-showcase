@@ -1,0 +1,12 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.listItem {
+	@include vars.ul-list-item;
+}
+
+.listItem____blocky {
+	@include vars.ul-list-item;
+	@include vars.text-blocky;
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+}

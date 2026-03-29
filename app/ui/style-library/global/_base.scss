@@ -1,0 +1,74 @@
+@use '../global/tokens/mixins' as vars;
+
+html {
+	font-size: 10px;
+	position: relative;
+	scroll-behavior: smooth;
+	@media print {
+		font-size: 7px;
+	}
+}
+
+::selection {
+	background-color: var(--color-accent);
+	color: var(--color-bg);
+}
+
+.main {
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+hr {
+	border: 0;
+	background-color: black;
+	height: 1px;
+	margin-bottom: var(--block-spacing);
+}
+
+button {
+	all: unset;
+	text-decoration: 0;
+	cursor: pointer;
+	&.button {
+		@include vars.text-link-defaults;
+	}
+}
+
+input,
+button,
+label,
+textarea {
+	margin-bottom: var(--block-spacing--shallow);
+}
+
+a {
+	@include vars.text-link-defaults;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+	&:focus-visible {
+		outline: var(--outline-focus);
+		outline-offset: 0.3em;
+		text-decoration: none;
+	}
+}
+
+button,
+a,
+input[type='button'],
+input[type='submit'],
+input[type='reset'],
+label,
+select,
+textarea {
+	min-width: 24px;
+	min-height: 24px;
+}
+a {
+	min-width: unset;
+}

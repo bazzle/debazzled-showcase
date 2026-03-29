@@ -1,0 +1,72 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.horizontalList {
+	margin-bottom: 4rem;
+	&__heading {
+		@include vars.text-blocky;
+		padding-bottom: 0.6em;
+	}
+	ul {
+		display: inline-flex;
+		gap: 0.3em;
+		flex-wrap: wrap;
+		width: 100%;
+		flex-direction: column;
+		margin-bottom: 0;
+		@include vars.break(tablet) {
+			flex-direction: row;
+			align-items: center;
+		}
+		li {
+			margin-bottom: 0;
+			list-style-type: none;
+			max-width: var(--content-width);
+			margin-bottom: 0 !important;
+			padding-bottom: 0.3em;
+			list-style: none;
+			position: relative;
+			@include vars.break-under(tablet) {
+				padding-left: 1em;
+			}
+			&::before {
+				@include vars.break-under(tablet) {
+					position: absolute;
+					content: '◆';
+					font-size: 0.8em;
+					color: var(--color-accent-alt);
+					left: -0.2em;
+					top: 0.3em;
+				}
+			}
+			p {
+				margin-bottom: 0;
+			}
+			@include vars.break(tablet) {
+				display: flex;
+				align-items: center;
+				gap: 0.3em;
+				flex-direction: row;
+				margin-bottom: 0.6rem !important;
+				&::after {
+					content: '';
+					display: block;
+					flex-grow: 1;
+					height: 1px;
+					width: 4rem;
+					background-color: var(--color-accent-alt);
+					position: relative;
+					top: 2px;
+				}
+			}
+			a {
+				display: inline-block;
+			}
+
+			&:last-of-type {
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+}

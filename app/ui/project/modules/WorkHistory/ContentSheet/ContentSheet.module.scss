@@ -1,0 +1,51 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.contentSheet {
+	&__main {
+		padding-top: var(--block-spacing--shallow);
+	}
+	&_hidden {
+		display: none;
+		@media print {
+			display: block;
+		}
+	}
+	&__name {
+		@include vars.text-heading;
+		@media print {
+			font-size: 4rem;
+			margin-top: 2rem;
+			margin-bottom: 2rem;
+		}
+	}
+	&__dates {
+		margin-bottom: var(--block-spacing--tiny);
+		@include vars.text-blocky;
+		@include vars.break(desktop-wider) {
+			display: none;
+		}
+	}
+	&__metadata {
+		&__duration {
+			@include vars.text-blocky;
+			margin-bottom: var(--block-spacing--text);
+		}
+	}
+	&__clients_list {
+		padding-left: 0;
+		gap: 6rem;
+		column-count: 1;
+		margin-bottom: 0;
+		@include vars.break(desktop) {
+			column-count: 2;
+		}
+		@media print {
+			column-count: 2;
+		}
+	}
+	&__intro {
+		@include vars.text-intro;
+		margin-bottom: var(--block-spacing--text);
+		max-width: var(--content-width);
+	}
+}

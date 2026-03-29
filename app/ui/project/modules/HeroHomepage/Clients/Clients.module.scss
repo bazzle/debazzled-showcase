@@ -1,0 +1,31 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.clients {
+	@include vars.svgColor(var(--color-fg));
+	width: 100%;
+	@include vars.break(tablet) {
+		padding-top: var(--block-spacing--shallow);
+		padding-bottom: var(--block-spacing--shallow);
+	}
+	&__logos {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 3rem;
+		align-items: baseline;
+		&__line {
+			display: flex;
+			flex-direction: row;
+			gap: 3rem;
+			align-items: baseline;
+			flex-wrap: wrap;
+		}
+	}
+	.logo_nao {
+		position: relative;
+		top: 5px;
+	}
+	@media print {
+		display: none;
+	}
+}

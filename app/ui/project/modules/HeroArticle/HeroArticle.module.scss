@@ -1,0 +1,39 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.heroArticle {
+	position: relative;
+	height: auto;
+	flex-direction: column;
+	padding-top: var(--block-spacing--deep);
+	padding-bottom: var(--block-spacing--deep);
+	@media print {
+		background-image: none;
+	}
+	&__main {
+		display: block;
+		position: relative;
+		z-index: 1;
+	}
+	&__lockup {
+		flex-grow: 1;
+		display: block;
+		width: 100%;
+		position: relative;
+		margin-bottom: 0;
+		max-width: unset;
+		@media print {
+			padding-top: 1em;
+			padding-bottom: var(--block-spacing--shallow);
+		}
+	}
+	&__title {
+		@include vars.text-display-medium;
+		display: block;
+		color: var(--color-accent-alt);
+	}
+	&__metadata {
+		display: block;
+		@include vars.text-blocky;
+		margin-top: calc(var(--block-spacing--shallow) / 2);
+	}
+}

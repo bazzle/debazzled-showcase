@@ -1,0 +1,53 @@
+@use '@/app/ui/style-library/global/tokens/mixins' as vars;
+
+.vennDiagram {
+	width: 100%;
+	max-width: 400px;
+	margin-bottom: var(--block-spacing);
+	display: flex;
+	justify-content: center;
+	@include vars.break(desktop) {
+		max-width: 300px;
+		min-width: 250px;
+		float: right;
+		width: 22vw;
+		margin-bottom: calc(var(--block-spacing--shallow) / 2);
+		margin-left: calc(var(--block-spacing--shallow) / 2);
+	}
+	&__inner {
+		position: relative;
+		display: block;
+		height: auto;
+		width: 80%;
+	}
+	&__textOverlay {
+		position: absolute;
+		top: calc(50% + 0.5em);
+		left: 50%;
+		transform: translate(-50%, -50%);
+		@include vars.text-miniscule;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		span {
+			color: var(--color-accent-alt);
+			text-align: center;
+			padding: 0.3em;
+			display: block;
+			&.loopingText {
+				color: var(--color-fg);
+				max-width: 90px;
+			}
+		}
+	}
+	svg {
+		width: 100%;
+		height: auto;
+		text {
+			@include vars.text-miniscule;
+		}
+		circle {
+			fill: none !important;
+		}
+	}
+}
