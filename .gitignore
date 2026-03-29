@@ -37,3 +37,5 @@ next-env.d.ts
 
 # Output images
 /public/images/posts
+*storybook.log
+storybook-static
